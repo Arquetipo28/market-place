@@ -5,9 +5,8 @@ import {
   Toolbar,
   Typography,
   Button,
-  IconButton
+  Grid
 } from '@material-ui/core'
-import MenuIcon from '@material-ui/icons/Menu';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -29,15 +28,13 @@ export default function NavBar () {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <AppBar color="inherit" className={classes.bar}>
-        <Toolbar>
-          <Typography variant="h6" className={classes.title}>
-            Market Place
-          </Typography>
-          <Button color="inherit">Home</Button>
-        </Toolbar>
-      </AppBar>
-    </div>
+    <AppBar color="inherit" className={classes.bar} position="relative">
+      <Toolbar>
+        <Typography variant="h6" className={classes.title}>
+          Market Place
+        </Typography>
+        <Button color="inherit">Home</Button>
+      </Toolbar>
+    </AppBar>
   );
 }
