@@ -11,11 +11,21 @@ import {
 
 const useStyle = makeStyles(theme => ({
   card: {
-    maxWidth: 220,
+    maxWidth: 500,
     marginLeft: 25,
     marginRight: 25,
     marginTop: 20,
     marginBottom: 20
+  },
+  actions: {
+    position: "relative",
+    bottom: 0
+  },
+  content: {
+    height: 100
+  },
+  button: {
+    color: '#F38383'
   }
 }))
 
@@ -26,21 +36,21 @@ const ProductCard = (props) => {
     <Card className={classes.card}>
       <CardMedia
         component="img"
-        alt="Contemplative Reptile"
+        alt={props.data.brief}
         height="180"
         image={props.data.image_url}
-        title="Contemplative Reptile"
+        title={props.data.brief}
         />
-      <CardContent>
+      <CardContent className={classes.content}>
         <Typography gutterBottom variant="h5" component="h2">
             $ {props.data.price}
         </Typography>
         <Typography variant="body2" color="textSecondary" component="p">
-          {props.data.description}
+          {props.data.description.slice(0,100)}...
         </Typography>
       </CardContent>
-      <CardActions disableSpacing>
-        <Button size="small" color="primary">
+      <CardActions disableSpacing className={classes.actions}>
+        <Button size="small" color="inherit" className={classes.button}>
             Buy
         </Button>
       </CardActions>

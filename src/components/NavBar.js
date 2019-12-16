@@ -4,22 +4,21 @@ import {
   AppBar,
   Toolbar,
   Typography,
-  Button,
-  Grid
+  Button
 } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1,
+    flexGrow: 1
   },
   menuButton: {
-    marginRight: theme.spacing(2),
+    marginRight: theme.spacing(2)
   },
   title: {
-    flexGrow: 1,
+    flexGrow: 1
   },
   bar: {
-    backgroundColor: 'none',
+    backgroundColor: '#E5E8E8',
     boxShadow: 'none'
   }
 }));
