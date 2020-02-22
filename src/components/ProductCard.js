@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import {
   Typography,
   Card,
@@ -7,7 +7,7 @@ import {
   CardActions,
   Button,
   makeStyles
-} from '@material-ui/core';
+} from '@material-ui/core'
 
 const useStyle = makeStyles(theme => ({
   card: {
@@ -17,8 +17,8 @@ const useStyle = makeStyles(theme => ({
     marginTop: 20,
     marginBottom: 20
   },
-  actions: {
-    position: "relative",
+  actions: {
+    position: 'relative',
     bottom: 0
   },
   content: {
@@ -32,26 +32,26 @@ const useStyle = makeStyles(theme => ({
 const ProductCard = (props) => {
   const classes = useStyle()
 
-  return(
+  return (
     <Card className={classes.card}>
       <CardMedia
-        component="img"
+        component='img'
         alt={props.data.brief}
-        height="180"
-        image={props.data.image_url}
+        height='180'
+        image={props.data.imageUrl}
         title={props.data.brief}
-        />
+      />
       <CardContent className={classes.content}>
-        <Typography gutterBottom variant="h5" component="h2">
+        <Typography gutterBottom variant='h5' component='h2'>
             $ {props.data.price}
         </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
-          {props.data.description.slice(0,100)}...
+        <Typography variant='body2' color='textSecondary' component='p'>
+          {props.data.description.slice(0, 100)}...
         </Typography>
       </CardContent>
       <CardActions disableSpacing className={classes.actions}>
-        <Button size="small" color="inherit" className={classes.button}>
-            Buy
+        <Button size='small' color='inherit' className={classes.button}>
+            Add to cart
         </Button>
       </CardActions>
     </Card>
