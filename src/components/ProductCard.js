@@ -10,27 +10,7 @@ import {
 } from '@material-ui/core'
 import { useHistory } from 'react-router-dom'
 
-const useStyle = makeStyles(theme => ({
-  card: {
-    maxWidth: 500,
-    marginLeft: 25,
-    marginRight: 25,
-    marginTop: 20,
-    marginBottom: 20
-  },
-  actions: {
-    position: 'relative',
-    bottom: 0
-  },
-  content: {
-    height: 100
-  },
-  button: {
-    color: '#F38383'
-  }
-}))
-
-const ProductCard = (props) => {
+export default function ProductCard (props) {
   const classes = useStyle()
   const history = useHistory()
 
@@ -64,4 +44,23 @@ const ProductCard = (props) => {
     </Card>
   )
 }
-export default ProductCard
+
+const useStyle = makeStyles(theme => ({
+  card: {
+    maxWidth: 500,
+    marginLeft: 25,
+    marginRight: 25,
+    marginTop: 20,
+    marginBottom: 20
+  },
+  actions: {
+    position: 'relative',
+    bottom: 0
+  },
+  content: {
+    height: 100
+  },
+  button: {
+    color: '#F38383'
+  }
+}))

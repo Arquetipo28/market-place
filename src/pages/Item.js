@@ -16,6 +16,7 @@ import { connect } from 'react-redux'
 function Item (props) {
   const { id } = useParams()
   const item = foundItem(id)
+  const itemCount = props.cartItems.length
   const classes = useStyles()
   return (
     <div className={classes.itemContainer}>
@@ -43,7 +44,7 @@ function Item (props) {
                   {item.description}
                 </Typography>
                 <Grid container justify='flex-end' alignItems='center' className={classes.buyBtn}>
-                  <Button onClick={() => { props.addCartItem(item) }}>
+                  <Button onClick={() => { props.addCartItem({ ...item, id: itemCount }) }}>
                     Add to cart
                   </Button>
                 </Grid>

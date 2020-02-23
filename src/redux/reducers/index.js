@@ -1,8 +1,5 @@
 import * as actionTypes from '../actions/types'
-
-const initialState = {
-  cartItems: []
-}
+import { initialState } from '../store'
 
 function marketApp (state = initialState, action) {
   switch (action.type) {
