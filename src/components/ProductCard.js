@@ -8,6 +8,7 @@ import {
   Button,
   makeStyles
 } from '@material-ui/core'
+import { useHistory } from 'react-router-dom'
 
 const useStyle = makeStyles(theme => ({
   card: {
@@ -31,6 +32,7 @@ const useStyle = makeStyles(theme => ({
 
 const ProductCard = (props) => {
   const classes = useStyle()
+  const history = useHistory()
 
   return (
     <Card className={classes.card}>
@@ -50,8 +52,13 @@ const ProductCard = (props) => {
         </Typography>
       </CardContent>
       <CardActions disableSpacing className={classes.actions}>
-        <Button size='small' color='inherit' className={classes.button}>
-            Add to cart
+        <Button
+          size='small'
+          color='inherit'
+          className={classes.button}
+          onClick={() => history.push(`/item/${props.data.id}`)}
+        >
+          Show Item
         </Button>
       </CardActions>
     </Card>

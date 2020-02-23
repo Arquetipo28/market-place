@@ -1,5 +1,5 @@
 import * as cartActions from './cart'
 
-export default {
+export {
   cartActions
 }

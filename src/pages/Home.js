@@ -12,22 +12,6 @@ import ProductCard from '../components/ProductCard'
 import products from '../resources/products.json'
 import DefaultImage from '../assets/images/default.png'
 
-const useStyles = makeStyles(theme => ({
-  principal: {
-    marginTop: 50
-  },
-  title: {
-    marginLeft: 25,
-    marginRight: 25
-  },
-  products: {
-    marginTop: 20
-  },
-  slides: {
-    maxHeight: 300
-  }
-}))
-
 const Home = () => {
   const classes = useStyles()
   const defaultProduct = {
@@ -80,5 +64,21 @@ const Home = () => {
     </Grid>
   )
 }
+
+const useStyles = makeStyles(theme => ({
+  principal: {
+    marginTop: 50
+  },
+  title: {
+    marginLeft: 25,
+    marginRight: 25
+  },
+  products: {
+    marginTop: 20
+  },
+  slides: {
+    maxHeight: 300
+  }
+}))
 
 export default Home

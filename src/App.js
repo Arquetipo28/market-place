@@ -1,7 +1,7 @@
 import React from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
-import { Home } from './pages/Index'
-import { NavBar } from './components/Index'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { Home, Item } from './pages'
+import { NavBar } from './components'
 
 function App () {
   return (
@@ -10,6 +10,11 @@ function App () {
       <Route exact path='/'>
         <Home />
       </Route>
+      <Switch>
+        <Route path='/item/:id'>
+          <Item />
+        </Route>
+      </Switch>
     </Router>
   )
 }
