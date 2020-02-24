@@ -15,8 +15,8 @@ import {
   MenuItem
 } from '@material-ui/core'
 import { connect } from 'react-redux'
-import { store } from '../redux/store'
-import { cartActions } from '../redux/actions'
+import { store } from '../redux/store/index.js'
+import { cartActions } from '../redux/actions/index.js'
 
 function Cart (props) {
   const classes = useStyles()
