@@ -18,6 +18,7 @@ function Item (props) {
   const item = foundItem(id)
   const itemCount = props.cartItems.length
   const classes = useStyles()
+  
   return (
     <div className={classes.itemContainer}>
       <Card className={classes.card}>
@@ -44,7 +45,7 @@ function Item (props) {
                   {item.description}
                 </Typography>
                 <Grid container justify='flex-end' alignItems='center' className={classes.buyBtn}>
-                  <Button onClick={() => { props.addCartItem({ ...item, id: itemCount }) }}>
+                  <Button onClick={() => { props.addCartItem({ ...item, index: itemCount }) }}>
                     Add to cart
                   </Button>
                 </Grid>
