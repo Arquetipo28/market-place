@@ -35,12 +35,12 @@ function Cart (props) {
                 {cartItems.map(item => (
                   <ListItem key={item.id} className={[classes.padding30, classes.borderBotton]}>
                     <ListItemAvatar>
-                        <CardMedia
-                          component='img'
-                          image={item.imageUrl}
-                          className={classes.cartItemImage}
-                        />
-                      </ListItemAvatar>
+                      <CardMedia
+                        component='img'
+                        image={item.imageUrl}
+                        className={classes.cartItemImage}
+                      />
+                    </ListItemAvatar>
                     <ListItemText>
                       <Grid container>
                         <Grid item sm={12} md={10}>
