@@ -20,6 +20,15 @@ function marketApp (state = initialState, action) {
       return Object.assign({}, state, {
         cartItems: [...state.cartItems.filter(e => e.index !== action.item.index)]
       })
+    case actionTypes.UPDATE_CART_ITEM: {
+      const storedItem = state.cartItems.find(e => e.id === action.item.id)
+      const mappedItems = state.cartItems.filter(e => e.id !== storedItem.id)
+      const updatedItem = { ...storedItem, ...action.item }
+      console.log(updatedItem)
+      return Object.assign({}, state, {
+        cartItems: [...mappedItems, updatedItem]
+      })
+    }
     default:
       return state
   }

@@ -13,3 +13,10 @@ export const removeCartItem = (item) => {
     item
   }
 }
+
+export const updateCartItem = (item) => {
+  return {
+    type: types.UPDATE_CART_ITEM,
+    item
+  }
+}

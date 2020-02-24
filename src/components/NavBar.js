@@ -5,30 +5,16 @@ import {
   Toolbar,
   Typography,
   Button,
-  Badge,
-  Popover,
-  Grid,
-  IconButton
+  Badge
 } from '@material-ui/core'
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart'
-import DeleteIcon from '@material-ui/icons/Delete'
 import { connect } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
 function NavBar (props) {
   const classes = useStyles()
   const itemCount = props.cartItems.length
-  const [anchorEl, setAnchorEl] = React.useState(null)
-  const cartItems = props.cartItems
   const history = useHistory()
-
-  const handlePopoverState = (event, value) => {
-    if (value) return setAnchorEl(null)
-
-    setAnchorEl(event.currentTarget)
-  }
-
-  const openItemsPopover = Boolean(anchorEl)
 
   return (
     <AppBar color='inherit' className={classes.bar} position='relative'>
@@ -39,7 +25,7 @@ function NavBar (props) {
         <Button color='inherit' onClick={() => history.push('/')}>
           Home
         </Button>
-        <Button onClick={(event) => { handlePopoverState(event, anchorEl) }}>
+        <Button onClick={() => history.push('/my-cart')}>
           <Badge badgeContent={itemCount | 0} color='primary'>
             <ShoppingCartIcon />
           </Badge>
