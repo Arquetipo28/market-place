@@ -43,12 +43,12 @@ function Cart (props) {
                       </ListItemAvatar>
                     <ListItemText>
                       <Grid container>
-                        <Grid item md={8}>
+                        <Grid item sm={12} md={10}>
                           <p className={classes.itemPrincipalData}>
                             {item.title}<br />{item.description}
                           </p>
                         </Grid>
-                        <Grid item sm={4} md={2} className={classes.justifyCenter}>
+                        <Grid item xs={4} sm={4} md={2} className={classes.justifyLeft}>
                           <FormControl variant='outlined' className={classes.formControl}>
                             <Select value={item.count} onChange={event => handleItemCountChange(event, item.id)}>
                               {[1, 2, 3, 4, 5].map(n => (
@@ -57,7 +57,7 @@ function Cart (props) {
                             </Select>
                           </FormControl>
                         </Grid>
-                        <Grid item sm={4} md={2} className={classes.justifyCenter}>
+                        <Grid item sm={4} md={2} className={classes.justifyLeft}>
                           <span>$ {(item.price * item.count).toFixed(2)}</span>
                         </Grid>
                       </Grid>
@@ -70,18 +70,18 @@ function Cart (props) {
           <Grid item xs={12} sm={12} md={4}>
             <CardContent className={classes.cartPaymentWrapper}>
               <Grid container className={[classes.borderBotton, classes.padding30]}>
-                <Grid item md={8}>
+                <Grid item xs={8} sm={8} md={8}>
                   <span>Subtotal:</span>
                 </Grid>
-                <Grid item md={4} className={classes.justifyCenter}>
+                <Grid item xs={4} sm={4} md={4} className={classes.justifyCenter}>
                   <span>$ {subTotalPrice.toFixed(2)}</span>
                 </Grid>
               </Grid>
               <Grid container className={[classes.padding30]}>
-                <Grid item md={8}>
+                <Grid item xs={8} sm={8} md={8}>
                   <span>Total con IVA:</span>
                 </Grid>
-                <Grid item md={4} className={classes.justifyCenter}>
+                <Grid item xs={4} sm={4} md={4} className={classes.justifyCenter}>
                   <span>$ {totalPrice.toFixed(2)}</span>
                 </Grid>
               </Grid>
@@ -122,11 +122,17 @@ const useStyles = makeStyles(_theme => ({
     flexGrow: 1
   },
   itemPrincipalData: {
-    fontSize: 14
+    fontSize: 14,
+    marginRight: 30
   },
   justifyCenter: {
     display: 'flex',
     justifyContent: 'center',
+    alignItems: 'center'
+  },
+  justifyLeft: {
+    display: 'flex',
+    justifyContend: 'left',
     alignItems: 'center'
   },
   formControl: {

@@ -15,7 +15,7 @@ export default function ProductCard (props) {
   const history = useHistory()
 
   return (
-    <Card className={classes.card}>
+    <Card className={classes.card} onClick={() => history.push(`/item/${props.data.id}`)}>
       <CardMedia
         component='img'
         alt={props.data.brief}
@@ -36,7 +36,6 @@ export default function ProductCard (props) {
           size='small'
           color='inherit'
           className={classes.button}
-          onClick={() => history.push(`/item/${props.data.id}`)}
         >
           Show Item
         </Button>
