@@ -1,5 +1,5 @@
 import { createStore } from 'redux'
-import marketApp from '../reducers'
+import marketApp from '../reducers/index.js'
 
 const initialState = { cartItems: [] }
 

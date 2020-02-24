@@ -1,5 +1,5 @@
-import * as actionTypes from '../actions/types'
-import { initialState } from '../store'
+import * as actionTypes from '../actions/types.js'
+import { initialState } from '../store/index.js'
 
 function marketApp (state = initialState, action) {
   switch (action.type) {

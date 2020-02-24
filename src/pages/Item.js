@@ -10,7 +10,7 @@ import {
 } from '@material-ui/core'
 import Grid from '@material-ui/core/Grid'
 import products from '../resources/products.json'
-import { cartActions } from '../redux/actions'
+import { cartActions } from '../redux/actions/index.js'
 import { connect } from 'react-redux'
 
 function Item (props) {
