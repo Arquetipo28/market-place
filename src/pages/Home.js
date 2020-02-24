@@ -1,16 +1,69 @@
-import React from 'react';
+import React from 'react'
 import {
   Grid,
   makeStyles,
   Typography
-} from '@material-ui/core';
-import AwesomeSlider from 'react-awesome-slider';
-import AwsSliderStyles from 'react-awesome-slider/src/styles';
+} from '@material-ui/core'
+import AwesomeSlider from 'react-awesome-slider'
+import AwsSliderStyles from 'react-awesome-slider/src/styles'
 
 import Footer from '../components/Footer'
 import ProductCard from '../components/ProductCard'
-import products from '../data/products.js'
+import products from '../resources/products.json'
 import DefaultImage from '../assets/images/default.png'
+
+const Home = () => {
+  const classes = useStyles()
+  const defaultProduct = {
+    title: 'Default',
+    imageUrl: DefaultImage,
+    price: '00.00',
+    description: 'This is a default product',
+    brief: 'Default'
+  }
+
+  return (
+    <Grid container>
+      {/* Top carousel */}
+      <AwesomeSlider cssModule={AwsSliderStyles} className={classes.slides} bullets={false}>
+        {products.new.map((item, itemKey) => {
+          return <div key={itemKey} data-src={item.imageUrl} />
+        })}
+      </AwesomeSlider>
+      {/* New products */}
+      <Grid item className={classes.principal} sm={12}>
+        <Typography component='h2' variant='h5' className={classes.title}>New products</Typography>
+      </Grid>
+      <Grid item sm={12} className={classes.products}>
+        <Grid container justify='flex-start' spacing={1}>
+          {products.new.map((item, itemKey) => {
+            return (
+              <Grid key={itemKey} item xs={12} sm={6} md={4} lg={3}>
+                <ProductCard data={item} />
+              </Grid>
+            )
+          })}
+        </Grid>
+      </Grid>
+      {/* Best selling */}
+      <Grid item className={classes.principal} sm={12}>
+        <Typography component='h2' variant='h5' className={classes.title}>Best selling</Typography>
+      </Grid>
+      <Grid item sm={12} className={classes.products}>
+        <Grid container justify='flex-start' spacing={1}>
+          {[1, 2, 3, 4].map((_item, itemKey) => {
+            return (
+              <Grid key={itemKey} item xs={12} sm={6} md={4} lg={3}>
+                <ProductCard data={defaultProduct} />
+              </Grid>
+            )
+          })}
+        </Grid>
+      </Grid>
+      <Footer />
+    </Grid>
+  )
+}
 
 const useStyles = makeStyles(theme => ({
   principal: {
@@ -26,61 +79,6 @@ const useStyles = makeStyles(theme => ({
   slides: {
     maxHeight: 300
   }
-}));
+}))
 
-
-const Home = () => {
-  const classes = useStyles();
-  const default_product = {
-    title: 'Default',
-    image_url: DefaultImage,
-    price: '00.00',
-    description: 'This is a default product',
-    brief: 'Default'
-  }
-
-  return (
-    <Grid container>
-      {/* Top carousel */}
-      <AwesomeSlider cssModule={AwsSliderStyles} className={classes.slides} bullets={false}>
-        {products.new.map((item, item_key) => {
-          return <div key={item_key} data-src={item.image_url}></div>
-        })}
-      </AwesomeSlider>
-      {/* New products */}
-      <Grid item className={classes.principal} sm={12}>
-        <Typography component="h2" variant="h5" className={classes.title}>New products</Typography>
-      </Grid>
-      <Grid item sm={12} className={classes.products}>
-        <Grid container justify="left" spacing={1}>
-          {products.new.map((item, item_key) => {
-            return (
-              <Grid key={item_key} item xs={12} sm={6} md={4} lg={3}>
-                <ProductCard data={item}/>
-              </Grid>
-            )
-          })}
-        </Grid>
-      </Grid>
-      {/* Best selling */}
-      <Grid item className={classes.principal} sm={12}>
-        <Typography component="h2" variant="h5" className={classes.title}>Best selling</Typography>
-      </Grid>
-      <Grid item sm={12} className={classes.products}>
-        <Grid container justify="left" spacing={1}>
-          {[1,2,3,4].map((_item, item_key) => {
-            return (
-              <Grid key={item_key} item xs={12} sm={6} md={4} lg={3}>
-                <ProductCard data={default_product}/>
-              </Grid>
-            )
-          })}
-        </Grid>
-      </Grid>
-      <Footer/>
-    </Grid>
-  );
-}
-
-export default Home;
-
+export default Home

@@ -1,22 +1,21 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
   footer: {
     backgroundColor: 'white',
-    position: "relative",
+    position: 'relative',
     bottom: 0,
     height: 400,
-    width: "100vw"
+    width: '100vw'
   }
 }))
 
 const Footer = () => {
-  const classes = useStyles();
+  const classes = useStyles()
   return (
-    <div className={classes.footer}>
-    </div>
-  );
+    <div className={classes.footer} />
+  )
 }
 
 export default Footer
