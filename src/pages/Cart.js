@@ -17,6 +17,7 @@ import {
 import { connect } from 'react-redux'
 import { store } from '../redux/store/index.js'
 import { cartActions } from '../redux/actions/index.js'
+import { Link } from 'react-router-dom'
 
 function Cart (props) {
   const classes = useStyles()
@@ -44,9 +45,9 @@ function Cart (props) {
                     <ListItemText>
                       <Grid container>
                         <Grid item sm={12} md={10}>
-                          <p className={classes.itemPrincipalData}>
+                          <Link className={classes.itemPrincipalData} to={`/item/${item.id}`}>
                             {item.title}<br />{item.description}
-                          </p>
+                          </Link>
                         </Grid>
                         <Grid item xs={4} sm={4} md={2} className={classes.justifyLeft}>
                           <FormControl variant='outlined' className={classes.formControl}>
@@ -123,7 +124,9 @@ const useStyles = makeStyles(_theme => ({
   },
   itemPrincipalData: {
     fontSize: 14,
-    marginRight: 30
+    marginRight: 30,
+    textDecoration: 'none',
+    color: '#474747'
   },
   justifyCenter: {
     display: 'flex',
