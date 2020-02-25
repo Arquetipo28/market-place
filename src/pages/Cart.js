@@ -34,7 +34,7 @@ function Cart (props) {
               <Typography variant='h5'>Carrito de compra</Typography>
               <List>
                 {cartItems.map(item => (
-                  <ListItem key={item.id} className={[classes.padding30, classes.borderBotton]}>
+                  <ListItem key={item.id} className={`${[classes.padding30, classes.borderBotton]}`}>
                     <ListItemAvatar>
                       <CardMedia
                         component='img'
@@ -70,7 +70,7 @@ function Cart (props) {
           </Grid>
           <Grid item xs={12} sm={12} md={4}>
             <CardContent className={classes.cartPaymentWrapper}>
-              <Grid container className={[classes.borderBotton, classes.padding30]}>
+              <Grid container className={`${[classes.borderBotton, classes.padding30]}`}>
                 <Grid item xs={8} sm={8} md={8}>
                   <span>Subtotal:</span>
                 </Grid>
@@ -78,7 +78,7 @@ function Cart (props) {
                   <span>$ {subTotalPrice.toFixed(2)}</span>
                 </Grid>
               </Grid>
-              <Grid container className={[classes.padding30]}>
+              <Grid container className={classes.padding30}>
                 <Grid item xs={8} sm={8} md={8}>
                   <span>Total con IVA:</span>
                 </Grid>
