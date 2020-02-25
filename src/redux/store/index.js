@@ -1,24 +1,18 @@
 import { createStore } from 'redux'
 import marketApp from '../reducers/index.js'
+import { handle } from '@arquetipo28/localstorage-handler'
 
 const initialState = { cartItems: [] }
 
-const saveStateOnLocalStorage = (state) => {
-  try {
-    const stringState = JSON.stringify(state)
-    localStorage.setItem('state', stringState)
-  } catch (e) {
-    console.error(e)
-  }
+const saveStateOnLocalStorage = (newState) => {
+  handle(function state () {
+    console.log(newState)
+    return newState
+  }, { force: true, expire: { hours: 1 } })
 }
 
 const loadStateFromLocalStore = () => {
-  try {
-    const stringState = localStorage.getItem('state') || initialState
-    return JSON.parse(stringState)
-  } catch {
-    return undefined
-  }
+  return handle(function state () {})
 }
 
 const persistedState = loadStateFromLocalStore()
