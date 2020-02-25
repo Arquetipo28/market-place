@@ -50,7 +50,8 @@ const useStyle = makeStyles(theme => ({
     marginLeft: 25,
     marginRight: 25,
     marginTop: 20,
-    marginBottom: 20
+    marginBottom: 20,
+    cursor: 'pointer'
   },
   actions: {
     position: 'relative',
