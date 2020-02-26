@@ -6,14 +6,15 @@ import {
 } from '@material-ui/core'
 import AwesomeSlider from 'react-awesome-slider'
 import AwsSliderStyles from 'react-awesome-slider/src/styles'
-
 import Footer from '../components/Footer'
 import ProductCard from '../components/ProductCard'
 import products from '../resources/products.json'
 import DefaultImage from '../assets/images/default.png'
+import { useGeneralClasses } from '../styles/index.js'
 
 const Home = () => {
   const classes = useStyles()
+  const generalClasses = useGeneralClasses()
   const defaultProduct = {
     title: 'Default',
     imageUrl: DefaultImage,
@@ -31,10 +32,10 @@ const Home = () => {
         })}
       </AwesomeSlider>
       {/* New products */}
-      <Grid item className={classes.principal} sm={12}>
-        <Typography component='h2' variant='h5' className={classes.title}>New products</Typography>
+      <Grid item className={generalClasses.margin_t_bg} sm={12}>
+        <Typography component='h2' variant='h5' className={generalClasses.margin_lr_lg}>New products</Typography>
       </Grid>
-      <Grid item sm={12} className={classes.products}>
+      <Grid item sm={12} className={`${generalClasses.margin_lr_lg} ${generalClasses.margin_t_bg}`}>
         <Grid container justify='flex-start' spacing={1}>
           {products.new.map((item, itemKey) => {
             return (
@@ -46,10 +47,10 @@ const Home = () => {
         </Grid>
       </Grid>
       {/* Best selling */}
-      <Grid item className={classes.principal} sm={12}>
-        <Typography component='h2' variant='h5' className={classes.title}>Best selling</Typography>
+      <Grid item className={generalClasses.margin_t_bg} sm={12}>
+        <Typography component='h2' variant='h5' className={generalClasses.margin_lr_lg}>Best selling</Typography>
       </Grid>
-      <Grid item sm={12} className={classes.products}>
+      <Grid item sm={12} className={`${generalClasses.margin_lr_lg} ${generalClasses.margin_t_bg}`}>
         <Grid container justify='flex-start' spacing={1}>
           {[1, 2, 3, 4].map((_item, itemKey) => {
             return (
@@ -65,17 +66,7 @@ const Home = () => {
   )
 }
 
-const useStyles = makeStyles(theme => ({
-  principal: {
-    marginTop: 50
-  },
-  title: {
-    marginLeft: 25,
-    marginRight: 25
-  },
-  products: {
-    marginTop: 20
-  },
+const useStyles = makeStyles(_theme => ({
   slides: {
     maxHeight: 300
   }

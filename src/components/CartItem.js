@@ -19,7 +19,7 @@ function CartItem (props) {
   const generalClasses = useGeneralClasses()
 
   return (
-    <ListItem key={item.id} className={`${[generalClasses.padding_a_xl, generalClasses.border_b]}`}>
+    <ListItem key={item.id} className={`${[generalClasses.padding_a_bg, generalClasses.border_b]}`}>
       <ListItemAvatar>
         <img
           src={item.imageUrl}
