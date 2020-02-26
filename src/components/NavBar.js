@@ -51,7 +51,8 @@ const useStyles = makeStyles(theme => ({
   },
   bar: {
     backgroundColor: '#E5E8E8',
-    boxShadow: 'none'
+    boxShadow: 'none',
+    width: '100%'
   },
   popover: {
     pointerEvents: 'none'

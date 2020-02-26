@@ -34,6 +34,9 @@ const classes = makeStyles(_theme => ({
   margin_t_bg: {
     marginTop: BG
   },
+  margin_b_bg: {
+    marginBottom: BG
+  },
   flex: {
     display: 'flex'
   },

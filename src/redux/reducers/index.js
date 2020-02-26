@@ -24,7 +24,6 @@ function marketApp (state = initialState, action) {
       const storedItem = state.cartItems.find(e => e.id === action.item.id)
       const mappedItems = state.cartItems.filter(e => e.id !== storedItem.id)
       const updatedItem = { ...storedItem, ...action.item }
-      console.log(updatedItem)
       return Object.assign({}, state, {
         cartItems: [...mappedItems, updatedItem]
       })

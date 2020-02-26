@@ -6,7 +6,6 @@ const initialState = { cartItems: [] }
 
 const saveStateOnLocalStorage = (newState) => {
   handle(function state () {
-    console.log(newState)
     return newState
   }, { force: true, expire: { hours: 1 } })
 }

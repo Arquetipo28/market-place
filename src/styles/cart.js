@@ -12,9 +12,8 @@ const classes = makeStyles(_theme => ({
     padding: 20
   },
   itemImage: {
-    maxHeight: 100,
-    maxWidth: 100,
-    marginRight: 30
+    maxHeight: 350,
+    maxWidth: 350
   },
   itemDescription: {
     fontSize: 14,
