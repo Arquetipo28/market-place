@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@arquetipo28/localstorage-handler": "0.0.5",
+    "@arquetipo28/localstorage-handler": "^1.0.0",
     "@material-ui/core": "^4.7.0",
     "@material-ui/icons": "^4.5.1",
     "node-sass": "^4.13.1",
