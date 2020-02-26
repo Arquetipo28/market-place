@@ -1,6 +1,6 @@
 {
   "name": "market-place",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "dependencies": {
     "@arquetipo28/localstorage-handler": "^1.0.0",
