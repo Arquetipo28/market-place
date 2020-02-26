@@ -78,7 +78,7 @@ function Cart (props) {
                   <span>$ {subTotalPrice.toFixed(2)}</span>
                 </Grid>
               </Grid>
-              <Grid container className={classes.padding30}>
+              <Grid container className={classes.marginTop30}>
                 <Grid item xs={8} sm={8} md={8}>
                   <span>Total con IVA:</span>
                 </Grid>
@@ -106,6 +106,9 @@ const useStyles = makeStyles(_theme => ({
   },
   padding30: {
     padding: 30
+  },
+  marginTop30: {
+    marginTop: 30
   },
   principalContainer: {
     width: '90%',
