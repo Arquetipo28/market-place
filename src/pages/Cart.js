@@ -3,21 +3,12 @@ import {
   makeStyles,
   Card,
   CardContent,
-  CardMedia,
   Grid,
   List,
-  ListItem,
-  ListItemText,
-  ListItemAvatar,
-  FormControl,
-  Typography,
-  Select,
-  MenuItem
+  Typography
 } from '@material-ui/core'
 import { connect } from 'react-redux'
-import { store } from '../redux/store/index.js'
-import { cartActions } from '../redux/actions/index.js'
-import { Link } from 'react-router-dom'
+import { PaymentBox, CartItem } from '../components/Index'
 
 function Cart (props) {
   const classes = useStyles()
@@ -34,59 +25,13 @@ function Cart (props) {
               <Typography variant='h5'>Carrito de compra</Typography>
               <List>
                 {cartItems.map(item => (
-                  <ListItem key={item.id} className={`${[classes.padding30, classes.borderBotton]}`}>
-                    <ListItemAvatar>
-                      <CardMedia
-                        component='img'
-                        image={item.imageUrl}
-                        className={classes.cartItemImage}
-                      />
-                    </ListItemAvatar>
-                    <ListItemText>
-                      <Grid container>
-                        <Grid item sm={12} md={10}>
-                          <Link className={classes.itemPrincipalData} to={`/item/${item.id}`}>
-                            {item.title}<br />{item.description}
-                          </Link>
-                        </Grid>
-                        <Grid item xs={4} sm={4} md={2} className={classes.justifyLeft}>
-                          <FormControl variant='outlined' className={classes.formControl}>
-                            <Select value={item.count} onChange={event => handleItemCountChange(event, item.id)}>
-                              {[1, 2, 3, 4, 5].map(n => (
-                                <MenuItem key={n} value={n}>{n}</MenuItem>
-                              ))}
-                            </Select>
-                          </FormControl>
-                        </Grid>
-                        <Grid item sm={4} md={2} className={classes.justifyLeft}>
-                          <span>$ {(item.price * item.count).toFixed(2)}</span>
-                        </Grid>
-                      </Grid>
-                    </ListItemText>
-                  </ListItem>
+                  <CartItem key={item.index} item={item} />
                 ))}
               </List>
             </CardContent>
           </Grid>
           <Grid item xs={12} sm={12} md={4}>
-            <CardContent className={classes.cartPaymentWrapper}>
-              <Grid container className={`${[classes.borderBotton, classes.padding30]}`}>
-                <Grid item xs={8} sm={8} md={8}>
-                  <span>Subtotal:</span>
-                </Grid>
-                <Grid item xs={4} sm={4} md={4} className={classes.justifyCenter}>
-                  <span>$ {subTotalPrice.toFixed(2)}</span>
-                </Grid>
-              </Grid>
-              <Grid container className={classes.marginTop30}>
-                <Grid item xs={8} sm={8} md={8}>
-                  <span>Total con IVA:</span>
-                </Grid>
-                <Grid item xs={4} sm={4} md={4} className={classes.justifyCenter}>
-                  <span>$ {totalPrice.toFixed(2)}</span>
-                </Grid>
-              </Grid>
-            </CardContent>
+            <PaymentBox totalPrice={totalPrice} subTotalPrice={subTotalPrice} />
           </Grid>
         </Grid>
       </Card>
@@ -94,60 +39,12 @@ function Cart (props) {
   )
 }
 
-const handleItemCountChange = (event, id) => {
-  const selectedValue = event.target.value
-  const fieldsToUpdate = { id, count: selectedValue }
-  store.dispatch(cartActions.updateCartItem(fieldsToUpdate))
-}
-
 const useStyles = makeStyles(_theme => ({
-  borderBotton: {
-    borderBottom: '1px solid #E4E7E4'
-  },
-  padding30: {
-    padding: 30
-  },
-  marginTop30: {
-    marginTop: 30
-  },
-  principalContainer: {
-    width: '90%',
-    marginBottom: 50
-  },
-  cartItemImage: {
-    maxHeight: 100,
-    maxWidth: 100,
-    marginRight: 30
-  },
   wrapper: {
     display: 'flex',
     justifyContent: 'center',
     marginTop: 50,
     flexGrow: 1
-  },
-  itemPrincipalData: {
-    fontSize: 14,
-    marginRight: 30,
-    textDecoration: 'none',
-    color: '#474747'
-  },
-  justifyCenter: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  justifyLeft: {
-    display: 'flex',
-    justifyContend: 'left',
-    alignItems: 'center'
-  },
-  formControl: {
-    width: '80%'
-  },
-  cartPaymentWrapper: {
-    margin: 15,
-    border: '1px solid #E4E7E4',
-    padding: 20
   }
 }))
 
