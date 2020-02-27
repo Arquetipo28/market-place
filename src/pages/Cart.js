@@ -9,15 +9,14 @@ import {
 } from '@material-ui/core'
 import { connect } from 'react-redux'
 import { PaymentBox, CartItem } from '../components/Index'
-import { useGeneralClasses } from '../styles/index.js'
 import { LocalMall } from '@material-ui/icons'
+import '../styles/general.scss'
 
 function Cart (props) {
   const classes = useStyles()
   const cartItems = props.cartItems
   const subTotalPrice = props.cartItems.reduce((sum, value) => sum + (value.price * value.count), 0)
   const totalPrice = subTotalPrice + (subTotalPrice * 0.16)
-  const generalClasses = useGeneralClasses()
 
   return (
     <div className={classes.wrapper}>
@@ -30,9 +29,9 @@ function Cart (props) {
                 {cartItems.length > 0
                   ? cartItems.map(item => (
                     <CartItem key={item.index} item={item} />
-                  )) : <Grid container justify='center' className={generalClasses.margin_t_bg}>
+                  )) : <Grid container justify='center' className='margin_t_bg'>
                     <Grid item xs={12}>
-                      <p style={{textAlign: 'center'}}>No items selected yet</p>
+                      <p style={{ textAlign: 'center' }}>No items selected yet</p>
                     </Grid>
                     <Grid>
                       <LocalMall className={`${classes.noItemsIcon}`} />

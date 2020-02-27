@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import {
   Typography,
   Card,
@@ -12,20 +12,18 @@ import Grid from '@material-ui/core/Grid'
 import products from '../resources/products.json'
 import { cartActions } from '../redux/actions/index.js'
 import { connect } from 'react-redux'
-import { useGeneralClasses } from '../styles/index.js'
-import { useHistory } from 'react-router-dom'
+import '../styles/general.scss'
 
 function Item (props) {
   const { id } = useParams()
   const item = foundItem(id)
   const itemCount = props.cartItems.length
   const classes = useStyles()
-  const generalClasses = useGeneralClasses()
   const history = useHistory()
 
   if (item) {
     return (
-      <div className={generalClasses.flex_centered}>
+      <div className='flex_centered'>
         <Card className={classes.card}>
           <CardContent className={classes.content}>
             <Grid container className={classes.root}>
@@ -38,7 +36,7 @@ function Item (props) {
                   className={classes.image}
                 />
               </Grid>
-              <Grid item md={6} className={generalClasses.padding_a_bg}>
+              <Grid item md={6} className='padding_a_bg'>
                 <Grid item>
                   <Typography gutterBottom variant='h5' component='h2'>
                     {item.title}
@@ -49,7 +47,7 @@ function Item (props) {
                   <Typography variant='body2' color='textSecondary' component='p'>
                     {item.description}
                   </Typography>
-                  <Grid container justify='flex-end' alignItems='center' className={generalClasses.margin_t_bg}>
+                  <Grid container justify='flex-end' alignItems='center' className='margin_t_bg'>
                     <Button onClick={() => { props.addCartItem({ ...item, index: itemCount }) }}>
                       Add to cart
                     </Button>
