@@ -1,0 +1,18 @@
+@import './variables.scss';
+
+.cartPaymentWrapper {
+  margin: 15px;
+  border: 1px solid $border-color;
+  padding: 20px;
+}
+
+.itemImage {
+  max-height: 350px;
+  max-width: 350px;
+}
+
+.itemDescription {
+  font-size: 14px;
+  text-decoration: 'none';
+  color: $secondary-color;
+}
