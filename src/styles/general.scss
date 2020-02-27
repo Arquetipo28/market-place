@@ -1,0 +1,58 @@
+@import './variables.scss';
+
+.padding_a_lg {
+  padding: $large;
+}
+
+.padding_a_bg {
+  padding: $big;
+}
+
+.padding_b_sm {
+  padding-bottom: $small;
+}
+
+// Borders
+.border_b {
+  border-bottom: 1px solid $border-color;
+}
+
+// Margins
+.margin_lr_lg {
+  margin: 0 $large !important;
+}
+
+.margin_a_lg {
+  margin: $large !important;
+}
+
+.margin_t_xl {
+  margin-top: $extra-large !important;
+}
+
+.margin_t_bg {
+  margin-top: $big !important;
+}
+
+.margin_b_bg {
+  margin-bottom: $big !important;
+}
+
+.margin_b_sm {
+  margin-bottom: $small !important;
+}
+
+.flex {
+  display: 'flex';
+}
+
+.flex_centered {
+  justify-content: 'center';
+  align-items: 'center';
+}
+
+.flex_justify_left {
+  display: 'flex';
+  justify-content: 'left';
+  align-items: 'center';
+}
